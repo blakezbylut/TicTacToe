@@ -1,1 +1,44 @@
-hello
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <main>
+      <h1>Tic Tac Toe</h1>
+      <div class="columns clearfix">
+        <div class="column">
+          <img class="image-left" src="http://images.clipartpanda.com/stick-man-thinking-stickman-stick-figure-matchstick-man-thinking-idea.png">
+        </div>
+        <div class="column">
+
+          <div class="has-many clearfix">
+            <div class="box-div row-1 col-3" id="b3">  </div>
+            <div class="box-div row-1 col-2" id="b2">  </div>
+            <div class="box-div row-1 col-1" id="b1">  </div>
+            <div class="box-div row-2 col-3" id="b6">  </div>
+            <div class="box-div row-2 col-2" id="b5">  </div>
+            <div class="box-div row-2 col-1" id="b4">  </div>
+            <div class="box-div row-3 col-3" id="b9">  </div>
+            <div class="box-div row-3 col-2" id="b8">  </div>
+            <div class="box-div row-3 col-1" id="b7">  </div>
+
+            <button class="clearBoard">Clear The Board
+            </button>
+          </div>
+        </div>
+        <div class="column" id="rightlane">
+          <h2 id="playerTurn"></h2>
+          <h2 id="winnerText"></h2>
+        </div>
+
+
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js" charset="utf-8"></script>
+  <script src="scripts.js" charset="utf-8"></script>
+  </body>
+</html>
