@@ -6,6 +6,7 @@ var gameBoard = [
 [null,null,null]
 ];
 
+var counter = 0;
 var nextTurn = "X";
 changeText();
 
@@ -19,20 +20,13 @@ var getCol = function(element) {
     return parseInt(col.split("-")[1]);
 }
 
-$(".clearBoard").on("click", function(){//empty the array now
-  $(".box-div").text("");
-  gameBoard = [
-  [null,null,null],
-  [null,null,null],
-  [null,null,null]
-  ];
-  // Sergey - WHY DOES THIS WORK, changeTurn and changeText need to be invoked twice?
-  nextTurn = "O";
-  changeTurn();
-  changeText();
-  setClickHandler();
-  $("#winnerText").text("");
-}) //Try reset nextTurn to "X" here
+function changeTurn() {
+    if(nextTurn == "X"){
+      nextTurn = "O";
+    } else {
+      nextTurn = "X";
+  }
+}
 
 function changeText() {
   $("#playerTurn").text("Player " + nextTurn + ": Please Click");
@@ -42,14 +36,23 @@ function winnerText(){
   $("#winnerText").text("The winner is Player " + nextTurn + ". Congrats");
 }
 
-function changeTurn() {
-    if(nextTurn == "X"){
-      nextTurn = "O";
-    } else {
-      nextTurn = "X";
-  }
-}
-// function checkForWinner gameBoard[0][0] === gameBoard[0][1]
+$(".clearBoard").on("click", function(){//empty the array now
+  $(".box-div").text("");
+  gameBoard = [
+  [null,null,null],
+  [null,null,null],
+  [null,null,null]
+  ];
+  // Sergey - WHY DOES THIS WORK, changeTurn and changeText need to be invoked twice?
+  nextTurn = "O";
+  counter = 0;
+  changeTurn();
+  changeText();
+  $(".box-div").off();
+  setClickHandler();
+  $("#winnerText").text("");
+  $("#drawTime").text("");
+})
 
 function checkForWinner() {
   var isThereAWinner = false;
@@ -68,71 +71,46 @@ function checkForWinner() {
     isThereAWinner = true;
   } else if(gameBoard[0][0] !== null && (gameBoard[0][0] === gameBoard[1][1]) && (gameBoard[0][0] === gameBoard[2][2])){
   isThereAWinner = true;
-} else if(gameBoard[0][2] !== null && (gameBoard[0][2] === gameBoard[1][1]) && (gameBoard[0][0] === gameBoard[2][0])){
+} else if(gameBoard[0][2] !== null && (gameBoard[0][2] === gameBoard[1][1]) && (gameBoard[0][2] === gameBoard[2][0])){
   isThereAWinner = true;
 }
   return isThereAWinner;
 }
 
-// **********************
 function setClickHandler() {
   $('.box-div').on("click", function(e) {
-    var row = getRow($(this));
-    var col = getCol($(this));
+    var row = getRow($(e.target));
+    var col = getCol($(e.target));
 
     //checking to see if space is open
     if(gameBoard[row - 1][col - 1] === null){
-        var move = nextTurn;
 
-        $(e.target).text(nextTurn);
+        var move = nextTurn;//assigning move the X or O value
 
+        if($(e.target).text("")){
+          $(e.target).text(nextTurn);
+        }
         gameBoard[row - 1][col - 1] = move;
+        counter++;
+
         if(checkForWinner()){
           winnerText();
           $('.box-div').off();
+          counter = 0;
+        } else if(counter == 9){
+          $("#drawTime").text("We have a draw!");;
+          counter = 0;
+
         }
-      }
         changeTurn();
         changeText();
+
+    } else{
+      alert("Please click somewhere else");
+    }
   })
 }
 
 $(function() {
   setClickHandler();
 })
-
-//
-
-// **********************
-
-// Only check for winners after 5 moves...
-// function checkWinner(){
-//   checkRows();
-//   checkCols();
-//   checkDiags();
-// }
-
-
-
-//
-// for(var i = 1; i < 9; i++) {
-//     $("#b"+i).on("click",function() {
-//
-//         var row = getRow($(this));
-//         var col = getCol($(this));
-//
-//         //checking to see if space is open
-//         if(gameBoard[row - 1][col - 1] === null){
-//             var move = nextTurn;
-//             $("#b"+i).text(move);
-//             gameBoard[row - 1][col - 1] = move;
-//
-//             // game functions
-//             changeTurn();
-//             changeText();//etarget to find mouse position
-//
-//             // add counter for # of moves made
-//
-//         }
-//     });
-// }
