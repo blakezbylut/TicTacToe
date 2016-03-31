@@ -17,6 +17,12 @@ I would like to be alerted if it is a draw.
 I would like to be able to clear the board and reset the game to play again.
 I would like some kind of animation or aesthetic that engages me visually while I play.
 
+## Wireframing
+
+This layout is very simple. A 3x3 board flanked by information / images, and headed by the page title.
+
+![alt text](https://github.com/blakezbylut/TicTacToe/blob/gh-pages/wireframe.png)
+
 
 ## Pseudocoding
 1. Player turns, in terms of Player X and Player O [✓]
