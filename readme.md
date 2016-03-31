@@ -4,6 +4,8 @@ The game is Tic Tac Toe. The rules are obvious, but in case you are the outlier,
 
 The technologies used were jQuery, HTML, CSS and Javascript. The majority of the functions were run using jQuery. CSS allowed me to style the page, and I borrowed ideas (like the swing function on the buttons) from online posts. The HTML allowed me to put tags with id's and classes. I linked google fonts into the HTML file, along with the jQuery cdn library.
 
+Copy this link to play the game: http://blakezbylut.github.io/TicTacToe/
+
 ## User Stories
 
 As a user:
