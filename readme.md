@@ -4,7 +4,7 @@ The game is Tic Tac Toe. The rules are obvious, but in case you are the outlier,
 
 The technologies used were jQuery, HTML, CSS and Javascript. The majority of the functions were run using jQuery. CSS allowed me to style the page, and I borrowed ideas (like the swing function on the buttons) from online posts. The HTML allowed me to put tags with id's and classes. I linked google fonts into the HTML file, along with the jQuery cdn library.
 
-Copy this link to play the game: http://blakezbylut.github.io/TicTacToe/
+Click this link to play the game: http://blakezbylut.github.io/TicTacToe/
 
 ## User Stories
 
@@ -40,3 +40,9 @@ If top-left to bottom-right diagonal is all X or O, repeat the alert [✓]
 If top-right to bottom-left diagonal is all X or O, repeat the alert [✓]
 If neither of the above conditions are met, and all the boxes are filled, alert “the game is a draw” [✓]
 4. Final decisions, once the game is won, the board should ignore inputs. A variable can track whether game is over or not, and execute code only if game is not yet over [✓]
+
+## The game looks like this
+
+![alt text](https://github.com/blakezbylut/TicTacToe/blob/gh-pages/screenshot.png)
+
+Click this link to play the game: http://blakezbylut.github.io/TicTacToe/
